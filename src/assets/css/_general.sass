@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap')
+    
+body
+    background: $primary-white
+    
+.container
+    max-width: 834px
+    margin: 0 auto
+    padding: 64px 77px
+    block-sizing: border-box
+
+.typography
+    h2
+        font-family: 'Open Sans'
+        font-style: normal
+        font-weight: 700
+        font-size: 22px
+        line-height: 24px
+        color: $typography-title-color
+    p
+        font-family: 'Open Sans'
+        font-style: normal
+        font-weight: 400
+        font-size: 14px
+        line-height: 20px
+        color: $typography-text-color
+
+header
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: 700
+    font-size: 26px
+    line-height: 28px
+    color: $text-primary-color
+    width: 100%
+    padding-bottom: 16px
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08)
+    margin-bottom: 64px
+
+.customInput
+    margin: 0
+
+    span
+        font-family: 'Open Sans'
+        font-style: normal
+        font-weight: 700
+        font-size: 12px
+        line-height: 16px
+        letter-spacing: 0.03em
+        color: $input-label-color
+
+    input
+        font-family: 'Open Sans'
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 32px
+        width: 100%
+        min-height: 32px
+        border: none
+        border-bottom: 1px solid $separator-line-color
+        padding: 0 15px
+        box-sizing: border-box
+        margin-top: 2px
+
+        &:focus
+            outline: none
+            border-bottom: 1px solid $input-focus-color
+
+.inputError
+    border-bottom: 1px solid $input-error-color
+
+.customCheckbox 
+    display: block
+    position: relative
+    padding-left: 35px
+    cursor: pointer
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: 400
+    font-size: 14px
+    line-height: 20px
+    color: $text-secondary-color
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+    input 
+        position: absolute
+        opacity: 0
+        cursor: pointer
+        height: 0
+        width: 0
+
+.checkmark 
+    position: absolute
+    top: 0
+    left: 0
+    height: 20px
+    width: 20px
+    border: 1.6px solid $checkbox-border-color
+    border-radius: 2px
+    background-position: center
+    background-size: 5%
+    transition: all 0.3s
+
+
+.customCheckbox:hover input ~ .checkmark 
+  background-color: #f8f7f7
+
+
+.customCheckbox input:checked ~ .checkmark 
+  background-image: url("@/assets/images/checkboxCheckedIcon.svg")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 60%
+  border: 1.6px solid $checkbox-border-active-color
+
+
+.checkmark:after 
+  content: ""
+  position: absolute
+  display: none
+
+
+.customCheckbox input:checked ~ .checkmark:after 
+  display: block
+
+.button
+    border: none
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: 700
+    font-size: 16px
+    line-height: 24px
+    padding: 0
+    border-radius: 4px
+    cursor: pointer
+    transition: all 0.1s
+
+    &:active
+        scale: 0.99
+
+    &:disabled
+        background-color: #cccccc
+        color: #666666
+        scale: 1
+        cursor: default
+    
+    &Big 
+        width: 328px
+        height: 48px
+        background: $button-primary-color
+        color: $primary-white
+    &Medium
+        height: 40px
+        padding: 8px 16px
+        background: transparent
+        color: $text-primary-color
+        border: 1.6px solid $button-primary-color
+    &Underline
+        height: 24px
+        color: $button-tertiary-color
+        background: transparent
+        border-radius: unset
+        border-bottom: 2px dashed $button-tertiary-color
+    &ModalExit
+        font-size: 10px
+        line-height: 10px
+        background: transparent
+        color: $button-modal-exit
+        border-radius: unset
+        border-bottom: 1px dashed $button-tertiary-color
+
+
+.form
+    width: 100%
+    max-width: 328px
+    min-height: 288px
+    display: flex
+    flex-direction: column
+
+    &Input
+        margin-bottom: 4px
+        &Error
+            color: $input-error-color
+            font-family: 'Open Sans'
+            font-style: normal
+            font-weight: 400
+            font-size: 12px
+            height: 16px
+            margin-bottom: 8px
+    &Checkbox
+        margin-top: 20px
+    &Button
+        margin-top: auto
+    &Response
+        font-family: 'Open Sans'
+        font-style: normal
+        font-weight: 700
+        font-size: 20px
+        color: $text-primary-color
+
+.hideFormError
+    visibility: hidden
+
+.info
+    padding: 16px
+    border: 1px solid $info-block-color
+    border-radius: 8px
+    width: 240px
+    font-family: 'Open Sans'
+    font-style: normal
+
+    &Icon
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        background: $info-block-icon
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-bottom: 4px
+        img
+            width: 22px
+            height: 22px
+    &Title
+        font-weight: 700
+        font-size: 14px
+        line-height: 20px
+        color: $info-block-title
+        margin-bottom: 4px
+    &Text
+        font-weight: 400
+        font-size: 12px
+        line-height: 16px
+        color: $text-secondary-color
+
+
+.modalOverlay
+    position: fixed
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 98
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: $modal-background-color
+
+    &Button
+        position: absolute
+        top: 38px
+        right: 38px
+        width: 20px
+        height: 20px
+        background-image: url(@/assets/images/closeIcon.svg)
+        cursor: pointer
+
+        
+    
+.modalContainer 
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 35px
+    background-color: $main-background-color
+    border: 1px solid rgba(0, 0, 0, 0.32)
+    border-radius: 8px
+    width: 392px
+    min-height: 150px
+
+    &Button
+        position: relative
+        align-self: flex-end
+        margin-bottom: 24px
+        &Mobile
+            display: none
+            font-family: 'Open Sans'
+            font-style: normal
+            font-weight: 700
+            font-size: 14px
+            line-height: 24px
+            margin-bottom: 24px
+            color: $button-tertiary-color
+            img
+                margin-right: 6px 
+
+.modalTitle
+    margin-bottom: 24px
+    align-self: flex-start
+
+.modalContent
+    display: flex
+    justify-content: center
+
+
+.resetPassword
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    margin-bottom: 64px
+
+.management
+    max-width: 680px
+    margin-bottom: 64px
+    h2
+        margin-bottom: 18px
+    p
+        margin-bottom: 18px
+    
+    &Button
+        display: flex
+        align-items: center
+        img
+            margin-left: 14px
+    
+    &Buttons
+        display: flex
+        width: 406px
+        justify-content: space-between
+        align-items: center
+
+.rights
+    display: flex
+    justify-content: space-between
+    &Access
+        max-width: 327px
+        h2
+            margin-bottom: 16px
+        p
+            margin-bottom: 24px
